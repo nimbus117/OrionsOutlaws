@@ -4,8 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import uk.co.orionsoutlaws.ManagementSystem.Models.Assignment;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Bounty;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Customer;
+import uk.co.orionsoutlaws.ManagementSystem.Models.Hunter;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,5 +21,8 @@ public class ManagementSystemApplicationTests {
 	public void testAllClasses() {
 	    Customer customer = new Customer("Jaba", 1000, "jaba@hutt.tat");
 	    Bounty bounty = new Bounty("Han", 100, -1.976460, 281.694603, "", customer);
+	    Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "");
+		Assignment assignment = new Assignment(bounty, hunter);
+
 	}
 }

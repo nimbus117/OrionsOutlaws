@@ -1,7 +1,10 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "bounties")
@@ -33,8 +36,9 @@ public class Bounty {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    public Bounty() {
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "bounty")
+    private List<Assignment> assignments;
 
     public Bounty(String targetName, int reward, double lastKnownLat, double lastKnownLong, String imagePath, Customer customer) {
         this.targetName = targetName;
@@ -44,6 +48,10 @@ public class Bounty {
         this.lastKnownLong = lastKnownLong;
         this.imagePath = imagePath;
         this.customer = customer;
+        assignments = new ArrayList<>();
+    }
+
+    public Bounty() {
     }
 
     public Long getId() {
@@ -82,7 +90,7 @@ public class Bounty {
         return lastKnownLat;
     }
 
-    public void setLastKnownLat(short lastKnownLat) {
+    public void setLastKnownLat(double lastKnownLat) {
         this.lastKnownLat = lastKnownLat;
     }
 
@@ -90,7 +98,7 @@ public class Bounty {
         return lastKnownLong;
     }
 
-    public void setLastKnownLong(short lastKnownLong) {
+    public void setLastKnownLong(double lastKnownLong) {
         this.lastKnownLong = lastKnownLong;
     }
 
@@ -109,7 +117,16 @@ public class Bounty {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+
+    public void setAssignments(List<Assignment> assignments) {
+        this.assignments = assignments;
+    }
+
     public ArrayList<Double> getLastKnownLocation() {
         ArrayList<Double> coords = new ArrayList<>();
         coords.add(getLastKnownLat());
