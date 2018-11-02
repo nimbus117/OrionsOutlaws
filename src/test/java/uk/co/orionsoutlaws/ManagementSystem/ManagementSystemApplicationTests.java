@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import uk.co.orionsoutlaws.ManagementSystem.Models.Bounty;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Customer;
 
 @RunWith(SpringRunner.class)
@@ -17,5 +18,6 @@ public class ManagementSystemApplicationTests {
 	@Test
 	public void testAllClasses() {
 	    Customer customer = new Customer("Jaba", 1000, "jaba@hutt.tat");
+	    Bounty bounty = new Bounty("Han", 100, -1.976460, 281.694603, "", customer);
 	}
 }

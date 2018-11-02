@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -24,7 +25,7 @@ public class Customer {
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-    private ArrayList<Bounty> bounties;
+    private List<Bounty> bounties;
 
     public Customer(String name, int account, String emailAddress) {
         this.name = name;
@@ -68,7 +69,7 @@ public class Customer {
         this.emailAddress = emailAddress;
     }
 
-    public ArrayList<Bounty> getBounties() {
+    public List<Bounty> getBounties() {
         return bounties;
     }
 
