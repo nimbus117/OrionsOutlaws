@@ -38,7 +38,7 @@ public class Assignment {
 
     public void sendEmailNotification() {
         String subject = "New Target: " + bounty.getTargetName();
-        String body = String.format("For the attention of %s\n\nTarget Name: %s\nReward: %s\nCustomer: %s\nLast Known Location: %s;",
+        String body = String.format("<p>For the attention of %s</p><ul><li>Target Name: %s</li><li>Reward: %s</li><li>Customer: %s</li><li>Last Known Location: %s</li></ul>",
                 hunter.getName(),
                 bounty.getTargetName(),
                 bounty.getReward(),
