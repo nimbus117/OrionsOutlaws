@@ -1,6 +1,8 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 
+import uk.co.orionsoutlaws.ManagementSystem.Components.Gmail;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -31,6 +33,22 @@ public class Assignment {
         this.bounty = bounty;
         this.hunter = hunter;
         dateAssigned = LocalDateTime.now();
+
+    }
+
+    public void sendEmailNotification() {
+        String subject = "New Target: " + bounty.getTargetName();
+        String body = String.format("For the attention of %s\n\nTarget Name: %s\nReward: %s\nCustomer: %s\nLast Known Location: %s;",
+                hunter.getName(),
+                bounty.getTargetName(),
+                bounty.getReward(),
+                bounty.getCustomer().getName(),
+                bounty.getLastKnownLocation());
+
+        try {
+            Gmail email = new Gmail(hunter.getEmailAdress(), subject, body);
+            email.send();
+        } catch (java.lang.Exception ex) {System.out.println("Gmail error");}
     }
 
     public Long getId() {

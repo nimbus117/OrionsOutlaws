@@ -50,22 +50,26 @@ public class DataLoader  implements ApplicationRunner {
         Bounty bounty3 = new Bounty("The Master", 100000, -1.976460, 281.694603, "", customer3);
         bountyRepository.save(bounty3);
 
-        Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "");
+        Hunter hunter = new Hunter("Dog", "", 100, "");
         hunterRepository.save(hunter);
-        Hunter hunter2 = new Hunter("Bobba Fett", "Bobba@fett.co.uk", 100, "");
+        Hunter hunter2 = new Hunter("Bobba Fett", "", 100, "");
         hunterRepository.save(hunter2);
-        Hunter hunter3 = new Hunter("Krombopulos Michael", "lovekillin@hereigo.com", 100, "");
+        Hunter hunter3 = new Hunter("Krombopulos Michael", "", 100, "");
         hunterRepository.save(hunter3);
 
         Assignment assignment = new Assignment(bounty, hunter);
         assignmentRepository.save(assignment);
+        //assignment.sendEmailNotification();
+
         Assignment assignment2 = new Assignment(bounty2, hunter2);
         assignmentRepository.save(assignment2);
+        //assignment2.sendEmailNotification();
+
         Assignment assignment3 = new Assignment(bounty3, hunter3);
         assignmentRepository.save(assignment3);
+        //assignment3.sendEmailNotification();
+
         Assignment assignment4 = new Assignment(bounty, hunter2);
         assignmentRepository.save(assignment4);
-
-
-        }
     }
+}
