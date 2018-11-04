@@ -50,12 +50,14 @@ public class DataLoader  implements ApplicationRunner {
         Bounty bounty3 = new Bounty("The Master", 100000, -1.976460, 281.694603, "", customer3);
         bountyRepository.save(bounty3);
 
-        Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "");
+        Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "https://romanolawpc.com/wp-content/uploads/2017/06/bail-in-oregon.jpg");
         hunterRepository.save(hunter);
-        Hunter hunter2 = new Hunter("Bobba Fett", "Bobba@fett.co.uk", 100, "");
+        Hunter hunter2 = new Hunter("Bobba Fett", "bobba@fett.co.uk", 100, "https://pbs.twimg.com/profile_images/977943902769496064/k68wjfzV_400x400.jpg");
         hunterRepository.save(hunter2);
-        Hunter hunter3 = new Hunter("Krombopulos Michael", "lovekillin@hereigo.com", 100, "");
+        Hunter hunter3 = new Hunter("Krombopulos Michael", "lovekillin@hereigo.com", 100, "https://pbs.twimg.com/profile_images/894809145315950592/ZS11JXni_400x400.jpg");
         hunterRepository.save(hunter3);
+        Hunter hunter4 = new Hunter("IG-88", "ig88ROXXX@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg");
+        hunterRepository.save(hunter4);
 
         Assignment assignment = new Assignment(bounty, hunter);
         assignmentRepository.save(assignment);
