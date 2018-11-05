@@ -15,7 +15,7 @@ const NavBar = props => {
         <Nav className="mr-auto" defaultActiveKey={window.location.pathname}>
           <Nav.Link href="#customer">Customers</Nav.Link>
           <Nav.Link href="/hunters">Hunters</Nav.Link>
-          <Nav.Link href="#bounties">Bounties</Nav.Link>
+          <Nav.Link href="/bounties">Bounties</Nav.Link>
           <Nav.Link href="#assignments">Assignments</Nav.Link>
           <NavDropdown title="New" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Customer</NavDropdown.Item>
