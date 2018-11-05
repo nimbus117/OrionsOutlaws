@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import uk.co.orionsoutlaws.ManagementSystem.Enums.HunterStatus;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Assignment;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Bounty;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Customer;
@@ -13,6 +14,8 @@ import uk.co.orionsoutlaws.ManagementSystem.Repositories.AssignmentRepository.As
 import uk.co.orionsoutlaws.ManagementSystem.Repositories.BountyRepository.BountyRepository;
 import uk.co.orionsoutlaws.ManagementSystem.Repositories.CustomerRepository.CustomerRepository;
 import uk.co.orionsoutlaws.ManagementSystem.Repositories.HunterRepository.HunterRepository;
+
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
@@ -43,12 +46,18 @@ public class ManagementSystemApplicationTests {
 	    Bounty bounty = new Bounty("Han", 100, -1.976460, 281.694603, "", customer);
 	    bountyRepository.save(bounty);
 
-	    Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "");
+	    Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "", HunterStatus.ALIVE);
 	    hunterRepository.save(hunter);
 
 		Assignment assignment = new Assignment(bounty, hunter);
 		assignmentRepository.save(assignment);
 
 
+	}
+
+	@Test
+	public void hunterHasHunterStatus(){
+		Hunter hunter = new Hunter("Dog", "dog@wehuntyou.com", 100, "",HunterStatus.ALIVE);
+		assertEquals(HunterStatus.ALIVE, hunter.getHunterStatus());
 	}
 }

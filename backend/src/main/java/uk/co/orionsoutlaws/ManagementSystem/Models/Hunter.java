@@ -2,6 +2,7 @@ package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
+import uk.co.orionsoutlaws.ManagementSystem.Enums.HunterStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,20 +28,23 @@ public class Hunter {
     @Column(name = "image_path")
     private String imagePath;
 
+
     @Column
-    private boolean alive;
+    private HunterStatus hunterStatus;
+
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "hunter")
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private List<Assignment> assignments;
 
-    public Hunter(String name, String emailAdress, int wallet, String imagePath) {
+    public Hunter(String name, String emailAdress, int wallet, String imagePath, HunterStatus hunterStatus) {
         this.name = name;
         this.emailAdress = emailAdress;
         this.wallet = wallet;
         this.imagePath = imagePath;
-        alive = true;
+        this.hunterStatus = hunterStatus;
         assignments = new ArrayList<>();
     }
 
@@ -87,12 +91,12 @@ public class Hunter {
         this.imagePath = imagePath;
     }
 
-    public boolean isAlive() {
-        return alive;
+    public HunterStatus getHunterStatus() {
+        return hunterStatus;
     }
 
-    public void setAlive(boolean alive) {
-        this.alive = alive;
+    public void setHunterStatus(HunterStatus hunterStatus) {
+        this.hunterStatus = hunterStatus;
     }
 
     public List<Assignment> getAssignments() {
