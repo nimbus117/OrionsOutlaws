@@ -5,7 +5,6 @@ import HunterDetail from '../../components/hunters/HunterDetail'
 class HuntersSingleContainer extends React.Component{
   constructor(props){
     super(props);
-    console.log(this.props);
     this.state = {
       hunter: null
 
