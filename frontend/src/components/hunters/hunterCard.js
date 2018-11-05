@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/lib/Card'
 import Col from 'react-bootstrap/lib/Col'
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 
-const Hunter = props => {
+const HunterCard = props => {
   console.log(props.data)
   const path = props.data.imagePath
   const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
@@ -30,4 +30,4 @@ const Hunter = props => {
   )
 }
 
-export default Hunter;
+export default HunterCard;
