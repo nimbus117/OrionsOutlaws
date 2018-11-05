@@ -18,7 +18,6 @@ const BountyDetail = (props) => {
           <Col md={7}>
             <ListGroup variant="flush">
               <ListGroup.Item>Reward Value: £{props.data.reward}</ListGroup.Item>
-
             </ListGroup>
           </Col>
         </Row>
