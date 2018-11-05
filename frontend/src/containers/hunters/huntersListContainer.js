@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Request from '../helpers/request'
-import Hunter from '../components/hunter'
+import Request from '../../helpers/request'
+import Hunter from '../../components/hunters/hunter'
 import Container from 'react-bootstrap/lib/Container'
 import Row from 'react-bootstrap/lib/Row'
 import Jumbotron from 'react-bootstrap/lib/Jumbotron'
 
-class Hunters extends Component {
+class HuntersListContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -37,4 +37,4 @@ class Hunters extends Component {
     )
   }
 }
-export default Hunters;
+export default HuntersListContainer;

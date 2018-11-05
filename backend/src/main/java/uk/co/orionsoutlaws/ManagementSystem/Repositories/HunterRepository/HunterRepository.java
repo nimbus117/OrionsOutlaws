@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Hunter;
 
 @Repository
-public interface HunterRepository extends JpaRepository<Hunter, Long> {
+public interface HunterRepository extends JpaRepository<Hunter, Long>{
 }

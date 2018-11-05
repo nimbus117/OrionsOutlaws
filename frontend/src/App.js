@@ -3,7 +3,8 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavBar from './components/navbar'
 import Home from './containers/home'
-import Hunters from './containers/hunters'
+import HuntersListContainer from './containers/hunters/huntersListContainer'
+import HuntersSingleContainer from './containers/hunters/huntersSingleContainer'
 import ScrollToTop from 'react-scroll-up'
 
 class App extends Component {
@@ -13,7 +14,11 @@ class App extends Component {
         <React.Fragment>
           <NavBar />
           <Route exact path="/" component={Home} />
-          <Route path="/hunters" component={Hunters} />
+          <Route exact path="/hunters" component={HuntersListContainer} />
+          <Route exact path="/hunters/:id" component={HuntersSingleContainer} render = {(props) => {
+            const id = props.match.params.id;
+            return <HuntersSingleContainer id = {id} />
+          }} />
           <ScrollToTop showUnder={160}>
             <span>TOP</span>
           </ScrollToTop>
