@@ -1,18 +1,15 @@
 import React from 'react'
-import Jumbotron from 'react-bootstrap/lib/Jumbotron'
 import Container from 'react-bootstrap/lib/Container'
 import Row from 'react-bootstrap/lib/Row'
 import Image from'react-bootstrap/lib/Image'
 import Col from 'react-bootstrap/lib/Col'
 import ListGroup from 'react-bootstrap/lib/ListGroup'
+import Header from '../header';
 
 const HunterDetail = (props) => {
   return(
     <div>
-      <Jumbotron>
-        <h1>Hunter: {props.data.name}</h1>
-        <p>Orion's Outlaws management system. Authorized access only!</p>
-      </Jumbotron>
+      <Header title={`Hunter: ${props.data.name}`} />
       <Container>
         <Row>
           <Col md={4}>

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import Header from '../../components/header';
 import Request from '../../helpers/request'
 import HunterCard from '../../components/hunters/hunterCard'
 import Container from 'react-bootstrap/lib/Container'
 import Row from 'react-bootstrap/lib/Row'
-import Jumbotron from 'react-bootstrap/lib/Jumbotron'
 
 class HuntersListContainer extends Component {
 
@@ -36,10 +36,7 @@ class HuntersListContainer extends Component {
     const hunters = this.state.hunters.map((hunter, idx) => <HunterCard data={hunter} key={idx} handleDelete={this.handleDelete}/>)
     return(
       <div>
-        <Jumbotron>
-          <h1>Hunters</h1>
-          <p>Orion's Outlaws management system. Authorized access only!</p>
-        </Jumbotron>
+        <Header title="Hunters" />
         <Container>
           <Row>
             {hunters}

@@ -1,12 +1,9 @@
 import React from 'react';
-import Jumbotron from 'react-bootstrap/lib/Jumbotron'
+import Header from '../components/header';
 
 const Home = props => {
   return(
-    <Jumbotron>
-      <h1>Home Page</h1>
-      <p>Orion's Outlaws management system. Authorized access only!</p>
-    </Jumbotron>
+    <Header title="Home" />
   )
 }
 export default Home;
