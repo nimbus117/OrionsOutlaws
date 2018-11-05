@@ -34,3 +34,8 @@
 h1{
   font-family: "Planet N Compact";
 }
+
+p{
+  font-family: monospace;
+  font-size: 1.2em;
+}
