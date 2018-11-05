@@ -28,7 +28,6 @@ class HuntersListContainer extends Component {
     request.delete(url)
       .then(() => {
         window.location = '/hunters';
-
       })
   }
 

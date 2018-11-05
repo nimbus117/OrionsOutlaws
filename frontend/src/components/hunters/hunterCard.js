@@ -24,7 +24,7 @@ const HunterCard = props => {
             <li>Current Status: {props.data.hunterStatus.toString().toLowerCase()}</li>
           </ul>
           <ButtonGroup aria-label="Hunter options">
-            <Button variant="outline-dark" href = {`/hunters/${props.data.id}`}>View</Button>
+            <Button variant="outline-dark" href = {`/hunters/details/${props.data.id}`}>View</Button>
             <Button variant="outline-dark">Edit</Button>
             <Button variant="outline-danger" onClick={onDelete}>Delete</Button>
           </ButtonGroup>
