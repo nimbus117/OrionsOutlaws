@@ -21,7 +21,7 @@ const HunterCard = props => {
           <ul>
             <li>Email: {props.data.emailAdress}</li>
             <li>Wallet: {props.data.wallet}</li>
-            <li>Alive: {props.data.alive ? "true" : "false"}</li>
+            <li>Current Status: {props.data.hunterStatus.toString().toLowerCase()}</li>
           </ul>
           <ButtonGroup aria-label="Hunter options">
             <Button variant="outline-dark" href = {`/hunters/${props.data.id}`}>View</Button>

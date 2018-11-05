@@ -3,7 +3,9 @@ import Header from '../components/header';
 
 const Home = props => {
   return(
-    <Header title="Home" />
+    <div>
+      <Header title="Home" />
+    </div>
   )
 }
 export default Home;
