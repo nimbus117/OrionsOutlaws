@@ -26,7 +26,7 @@ class Hunters extends Component {
       <div>
         <Jumbotron>
           <h1>Hunters</h1>
-          <p>Orion's Outlaws managment system. Authorized access only!</p>
+          <p>Orion's Outlaws management system. Authorized access only!</p>
         </Jumbotron>
         <Container>
           <Row>

@@ -7,12 +7,13 @@ import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
 
 const NavBar = props => {
+  console.log(window.location.pathname)
   return(
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="/">Orion's Outlaws</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="mr-auto" activeKey={window.location.pathname}>
           <Nav.Link href="#customers">Customers</Nav.Link>
           <Nav.Link href="#bounties">Bounties</Nav.Link>
           <Nav.Link href="/hunters">Hunters</Nav.Link>

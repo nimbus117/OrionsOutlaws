@@ -5,7 +5,7 @@ const Home = props => {
   return(
     <Jumbotron>
       <h1>Home Page</h1>
-      <p>Orion's Outlaws managment system. Authorized access only!</p>
+      <p>Orion's Outlaws management system. Authorized access only!</p>
     </Jumbotron>
   )
 }
