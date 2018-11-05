@@ -22,7 +22,7 @@ const HunterDetail = (props) => {
             <ListGroup variant="flush">
               <ListGroup.Item>Email Address:{props.data.emailAdress}</ListGroup.Item>
               <ListGroup.Item>Wallet:{props.data.wallet}</ListGroup.Item>
-              <ListGroup.Item>Alive: {props.data.alive.toString()}</ListGroup.Item>
+              <ListGroup.Item>Alive: {props.data.hunterStatus}</ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>
