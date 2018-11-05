@@ -12,7 +12,7 @@ const NavBar = props => {
       <Navbar.Brand href="/"><img src="/images/white-logo.png" alt="company logo" height="35em" width="auto"></img></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="mr-auto" defaultActiveKey={window.location.pathname}>
           <Nav.Link href="#customer">Customers</Nav.Link>
           <Nav.Link href="/hunters">Hunters</Nav.Link>
           <Nav.Link href="#bounties">Bounties</Nav.Link>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Request from '../helpers/request'
+import Hunter from '../components/hunter'
 import Container from 'react-bootstrap/lib/Container'
 import Row from 'react-bootstrap/lib/Row'
 import Jumbotron from 'react-bootstrap/lib/Jumbotron'
@@ -20,7 +21,7 @@ class Hunters extends Component {
   }
 
   render() {
-    // const hunters = this.state.hunters.map((hunter, idx) => <Hunter data={hunter} key={idx} />)
+    const hunters = this.state.hunters.map((hunter, idx) => <Hunter data={hunter} key={idx} />)
     return(
       <div>
         <Jumbotron>
@@ -29,6 +30,7 @@ class Hunters extends Component {
         </Jumbotron>
         <Container>
           <Row>
+            {hunters}
           </Row>
         </Container>
       </div>
