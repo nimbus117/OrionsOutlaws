@@ -12,6 +12,7 @@ class HuntersListContainer extends Component {
     this.state = {
       hunters: []
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -20,8 +21,19 @@ class HuntersListContainer extends Component {
       .then(hunters => this.setState({hunters: hunters._embedded.hunters}));
   }
 
+  handleDelete(id) {
+    const request = new Request();
+    const url = '/api/hunters/' + id;
+    console.log(url);
+    request.delete(url)
+      .then(() => {
+        window.location = '/hunters';
+
+      })
+  }
+
   render() {
-    const hunters = this.state.hunters.map((hunter, idx) => <HunterCard data={hunter} key={idx} />)
+    const hunters = this.state.hunters.map((hunter, idx) => <HunterCard data={hunter} key={idx} handleDelete={this.handleDelete}/>)
     return(
       <div>
         <Jumbotron>

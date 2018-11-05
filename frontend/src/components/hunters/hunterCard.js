@@ -5,7 +5,11 @@ import Col from 'react-bootstrap/lib/Col'
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 
 const HunterCard = props => {
-  console.log(props.data)
+
+  const onDelete = () => {
+    props.handleDelete(props.data.id);
+  }
+
   const path = props.data.imagePath
   const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
   return(
@@ -22,7 +26,7 @@ const HunterCard = props => {
           <ButtonGroup aria-label="Hunter options">
             <Button variant="outline-dark" href = {`/hunters/${props.data.id}`}>View</Button>
             <Button variant="outline-dark">Edit</Button>
-            <Button variant="outline-danger">Delete</Button>
+            <Button variant="outline-danger" onClick={onDelete}>Delete</Button>
           </ButtonGroup>
         </Card.Body>
       </Card>

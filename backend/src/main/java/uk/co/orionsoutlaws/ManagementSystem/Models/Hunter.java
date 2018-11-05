@@ -1,6 +1,7 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Hunter {
 
     @JsonIgnore
     @OneToMany(mappedBy = "hunter")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private List<Assignment> assignments;
 
     public Hunter(String name, String emailAdress, int wallet, String imagePath) {

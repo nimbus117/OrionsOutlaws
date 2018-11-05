@@ -15,10 +15,7 @@ class App extends Component {
           <NavBar />
           <Route exact path="/" component={Home} />
           <Route exact path="/hunters" component={HuntersListContainer} />
-          <Route exact path="/hunters/:id" component={HuntersSingleContainer} render = {(props) => {
-            const id = props.match.params.id;
-            return <HuntersSingleContainer id={id} />
-          }} />
+          <Route exact path="/hunters/:id" component={HuntersSingleContainer} />
           <ScrollToTop showUnder={160}>
             <span>TOP</span>
           </ScrollToTop>
