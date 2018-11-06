@@ -72,7 +72,7 @@ export class MapContainer extends React.Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <div>
-                <a href={`/bounties/${this.state.activeMarker.id}`}>Bounty: {this.state.activeMarker.name}</a>
+                <a href={`/bounties/details/${this.state.activeMarker.id}`}>Bounty: {this.state.activeMarker.name}</a>
               </div>
           </InfoWindow>
 
