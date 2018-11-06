@@ -46,7 +46,7 @@ public class DataLoader  implements ApplicationRunner {
 
         Bounty bounty = new Bounty("Han", 100, -1.976460, 281.694603, "", customer);
         bountyRepository.save(bounty);
-        Bounty bounty2 = new Bounty("Jerry", 10, -1.976460, 281.694603, "", customer2);
+        Bounty bounty2 = new Bounty("Jerry", 10, -1.976460, 281.694603, "https://pbs.twimg.com/profile_images/794384241245229057/uoXLe07V_400x400.jpg", customer2);
         bountyRepository.save(bounty2);
         Bounty bounty3 = new Bounty("The Master", 100000, -1.976460, 281.694603, "", customer3);
         bountyRepository.save(bounty3);
