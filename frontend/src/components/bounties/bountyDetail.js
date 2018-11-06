@@ -18,6 +18,7 @@ const BountyDetail = (props) => {
           <Col md={7}>
             <ListGroup variant="flush">
               <ListGroup.Item>Reward Value: £{props.data.reward}</ListGroup.Item>
+              <ListGroup.Item>Completed: {props.data.completed.toString()}</ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>

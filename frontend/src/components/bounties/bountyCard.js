@@ -15,8 +15,8 @@ const BountyCard = props => {
         <Card.Body>
           <Card.Title>{props.data.targetName}</Card.Title>
           <ul>
-            <li>Reward: {props.data.reward}</li>
-
+            <li>Reward: £{props.data.reward}</li>
+            <li>Completed: {props.data.completed.toString()}</li>
           </ul>
           <ButtonGroup aria-label="Bounty options">
             <Button variant="outline-dark" href = {`/bounties/${props.data.id}`}>View</Button>

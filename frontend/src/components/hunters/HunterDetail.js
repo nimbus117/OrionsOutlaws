@@ -18,7 +18,7 @@ const HunterDetail = (props) => {
           <Col md={7}>
             <ListGroup variant="flush">
               <ListGroup.Item>Email Address: {props.data.emailAdress}</ListGroup.Item>
-              <ListGroup.Item>Wallet: {props.data.wallet}</ListGroup.Item>
+              <ListGroup.Item>Wallet: £{props.data.wallet}</ListGroup.Item>
               <ListGroup.Item>Current Status: {props.data.hunterStatus.toString().toLowerCase()}</ListGroup.Item>
             </ListGroup>
           </Col>

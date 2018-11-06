@@ -20,7 +20,7 @@ const HunterCard = props => {
           <Card.Title>{props.data.name}</Card.Title>
           <ul>
             <li>Email: {props.data.emailAdress}</li>
-            <li>Wallet: {props.data.wallet}</li>
+            <li>Wallet: £{props.data.wallet}</li>
             <li>Current Status: {props.data.hunterStatus.toString().toLowerCase()}</li>
           </ul>
           <ButtonGroup aria-label="Hunter options">
