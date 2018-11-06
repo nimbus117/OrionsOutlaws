@@ -63,8 +63,8 @@ export class MapContainer extends React.Component {
 
     return (
         <div>
-        <Map google={this.props.google} zoom={2.5} style={style} initialCenter={{lat: 38.098015,
-            lng: 9.459019}}
+        <Map google={this.props.google} zoom={2.5} style={style}
+          initialCenter={{lat: 38.098015, lng: 9.459019}}
         onClick={this.onMapClicked}>
 
           {bounties}
