@@ -23,7 +23,7 @@ const BountyCard = props => {
             <li>Completed: {props.data.completed.toString()}</li>
           </ul>
           <ButtonGroup aria-label="Bounty options">
-            <Button variant="outline-dark" href = {`/bounties/${props.data.id}`}>View</Button>
+            <Button variant="outline-dark" href = {`/bounties/details/${props.data.id}`}>View</Button>
             <Button variant="outline-dark">Edit</Button>
             <Button variant="outline-danger" onClick={onDelete} >Delete</Button>
           </ButtonGroup>
