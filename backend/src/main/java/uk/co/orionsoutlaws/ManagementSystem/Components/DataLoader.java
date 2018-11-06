@@ -46,9 +46,9 @@ public class DataLoader  implements ApplicationRunner {
 
         Bounty bounty = new Bounty("Han Solo", 100, -1.976460, 281.694603, "https://cdn.shopify.com/s/files/1/1368/0279/products/Han_Solo_1024x1024.jpg", customer);
         bountyRepository.save(bounty);
-        Bounty bounty2 = new Bounty("Jerry Smith", 10, -1.976460, 281.694603, "https://pbs.twimg.com/profile_images/794384241245229057/uoXLe07V_400x400.jpg", customer2);
+        Bounty bounty2 = new Bounty("Jerry Smith", 10, 64.366061, 156.689318, "https://pbs.twimg.com/profile_images/794384241245229057/uoXLe07V_400x400.jpg", customer2);
         bountyRepository.save(bounty2);
-        Bounty bounty3 = new Bounty("The Master", 100000, -1.976460, 281.694603, "http://atypicalreview.com/wp-content/gallery/2009-12-dw-417-end-of-time/dw-417-3-master.jpg", customer3);
+        Bounty bounty3 = new Bounty("The Master", 100000, 53.154594, -8.356675, "http://atypicalreview.com/wp-content/gallery/2009-12-dw-417-end-of-time/dw-417-3-master.jpg", customer3);
         bountyRepository.save(bounty3);
 
         Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "https://romanolawpc.com/wp-content/uploads/2017/06/bail-in-oregon.jpg", HunterStatus.ALIVE);

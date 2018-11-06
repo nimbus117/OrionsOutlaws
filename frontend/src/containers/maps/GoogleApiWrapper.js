@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Request from '../../helpers/request'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
@@ -54,7 +53,7 @@ export class MapContainer extends React.Component {
       }
 
       const bounties = this.state.bounties.map((bounty, idx) => {
-        return <Marker onClick={this.onMarkerClick}
+        return <Marker key={idx} onClick={this.onMarkerClick}
           name={bounty.targetName}
           id={bounty.id}
           position={{lat: bounty.lastKnownLat, lng: bounty.lastKnownLong}}

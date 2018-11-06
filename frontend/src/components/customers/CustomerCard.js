@@ -10,8 +10,6 @@ const CustomerCrad = props => {
     props.handleDelete(props.data.id);
   }
 
-  const path = props.data.imagePath
-  const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
   return(
     <Col md={6} xl={4}>
       <Card className="mb-4">

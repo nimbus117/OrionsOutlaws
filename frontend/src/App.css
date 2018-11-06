@@ -40,7 +40,6 @@
   color: #61dafb;
 }
 
-
 h1{
   font-family: 'Planet X Compact Condensed';
 }
@@ -48,4 +47,8 @@ h1{
 p{
   font-family: monospace;
   font-size: 1.2em;
+}
+
+.jumbotron {
+  padding: 1em;
 }
