@@ -5,6 +5,7 @@ import Image from'react-bootstrap/lib/Image'
 import Col from 'react-bootstrap/lib/Col'
 import ListGroup from 'react-bootstrap/lib/ListGroup'
 import Header from '../header';
+import BountyMapContainer from '../../containers/maps/GoogleApiBounty'
 
 const BountyDetail = (props) => {
   const path = props.data.imagePath
@@ -17,7 +18,10 @@ const BountyDetail = (props) => {
           <Col md={4}>
             <Image src={image} fluid/>
           </Col>
-          <Col md={7}>
+          <Col md={4}>
+            <BountyMapContainer data={props.data} />
+          </Col>
+          <Col md={4}>
             <ListGroup variant="flush">
               <ListGroup.Item>Reward Value: £{props.data.reward}</ListGroup.Item>
               <ListGroup.Item>Completed: {props.data.completed.toString()}</ListGroup.Item>
