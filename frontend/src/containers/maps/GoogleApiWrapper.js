@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Request from '../../helpers/request'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 export class MapContainer extends React.Component {
@@ -10,17 +11,29 @@ export class MapContainer extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      bounties: []
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClicked = this.onMapClicked.bind(this);
   }
 
-  onMarkerClick = (props, marker, e) =>
+    componentDidMount() {
+      const request = new Request();
+      request.get('/api/bounties/')
+      .then ( (bounties) => {
+        this.setState({ bounties: bounties._embedded.bounties});
+      })
+    }
+
+  onMarkerClick = (props, marker, e) => {
+    console.log("props:", props);
+    console.log("marker:", marker);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
+  }
 
     onMapClicked = (props) => {
     if (this.state.showingInfoWindow) {
@@ -39,24 +52,26 @@ export class MapContainer extends React.Component {
         margin: "0 1em"
       }
 
+      const bounties = this.state.bounties.map((bounty, idx) => {
+        return <Marker onClick={this.onMarkerClick}
+          name={bounty.targetName}
+          position={{lat: bounty.lastKnownLat, lng: bounty.lastKnownLong}}
+        />
+      })
+
     return (
         <div>
-        <Map google={this.props.google} zoom={2} style={style} center={this.props.google.maps.LatLng(38.098015, 9.459019)}
+        <Map google={this.props.google} zoom={2.5} style={style} initialCenter={{lat: 38.098015,
+            lng: 9.459019}}
         onClick={this.onMapClicked}>
 
-          <Marker onClick={this.onMarkerClick}
-                  name={'Current location'} lat={37.774929} lng={-122.419416} />
-
-          <Marker onClick={this.onMarkerClick}
-            title={'The marker`s title will appear as a tooltip.'}
-            name={'SOMA'}
-            position={{lat: 57.778519, lng: -122.405640}} />
+          {bounties}
 
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <div>
-                <h1>{this.state.selectedPlace.name}</h1>
+                <a href="#bounty">Bounty: {this.state.activeMarker.name}</a>
               </div>
           </InfoWindow>
 
