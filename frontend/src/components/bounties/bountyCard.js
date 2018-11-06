@@ -6,6 +6,10 @@ import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 
 const BountyCard = props => {
 
+  const onDelete = () => {
+    props.handleDelete(props.data.id);
+  }
+
   const path = props.data.imagePath
   const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
   return(
@@ -21,7 +25,7 @@ const BountyCard = props => {
           <ButtonGroup aria-label="Bounty options">
             <Button variant="outline-dark" href = {`/bounties/${props.data.id}`}>View</Button>
             <Button variant="outline-dark">Edit</Button>
-            <Button variant="outline-danger" >Delete</Button>
+            <Button variant="outline-danger" onClick={onDelete} >Delete</Button>
           </ButtonGroup>
         </Card.Body>
       </Card>

@@ -7,13 +7,15 @@ import ListGroup from 'react-bootstrap/lib/ListGroup'
 import Header from '../header';
 
 const HunterDetail = (props) => {
+  const path = props.data.imagePath
+  const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
   return(
     <div>
       <Header title={`Hunter: ${props.data.name}`} />
       <Container>
         <Row>
           <Col md={4}>
-            <Image src={props.data.imagePath} fluid/>
+            <Image src={image} fluid/>
           </Col>
           <Col md={7}>
             <ListGroup variant="flush">

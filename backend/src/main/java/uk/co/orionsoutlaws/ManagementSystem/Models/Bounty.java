@@ -1,6 +1,7 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class Bounty {
 
     @JsonIgnore
     @OneToMany(mappedBy = "bounty")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private List<Assignment> assignments;
 
     public Bounty(String targetName, int reward, double lastKnownLat, double lastKnownLong, String imagePath, Customer customer) {

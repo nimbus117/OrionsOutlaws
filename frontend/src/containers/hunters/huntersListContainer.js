@@ -32,7 +32,9 @@ class HuntersListContainer extends Component {
   }
 
   render() {
-    const hunters = this.state.hunters.map((hunter, idx) => <HunterCard data={hunter} key={idx} handleDelete={this.handleDelete}/>)
+    const hunters = this.state.hunters.map((hunter, idx) => {
+      return <HunterCard data={hunter} key={idx} handleDelete={this.handleDelete}/>
+    })
     return(
       <div>
         <Header title="Hunters" />

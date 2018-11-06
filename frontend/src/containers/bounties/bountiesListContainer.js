@@ -12,27 +12,40 @@ class BountiesListContainer extends React.Component{
     this.state = {
       bounties: []
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
-    componentDidMount() {
-      const request = new Request();
-      request.get('/api/bounties')
-        .then(bounties => this.setState({bounties: bounties._embedded.bounties}));
-    }
+  componentDidMount() {
+    const request = new Request();
+    request.get('/api/bounties')
+      .then(bounties => this.setState({bounties: bounties._embedded.bounties}));
+  }
 
-    render() {
-      const bounties = this.state.bounties.map((bounty, idx) => <BountyCard data={bounty} key={idx}/>)
-      return(
-        <div>
-          <Header title="Bounties" />
-          <Container>
-            <Row>
-              {bounties}
-            </Row>
-          </Container>
-        </div>
-      )
-    }
+  handleDelete(id) {
+    const request = new Request();
+    const url = '/api/bounties/' + id;
+    console.log(url);
+    request.delete(url)
+      .then(() => {
+        window.location = '/bounties';
+      })
+  }
+
+  render() {
+    const bounties = this.state.bounties.map((bounty, idx) => {
+      return <BountyCard data={bounty} key={idx} handleDelete={this.handleDelete}/>
+    })
+    return(
+      <div>
+        <Header title="Bounties" />
+        <Container>
+          <Row>
+            {bounties}
+          </Row>
+        </Container>
+      </div>
+    )
+  }
 }
 
 export default BountiesListContainer;

@@ -32,8 +32,6 @@ public class Hunter {
     @Column
     private HunterStatus hunterStatus;
 
-
-
     @JsonIgnore
     @OneToMany(mappedBy = "hunter")
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
