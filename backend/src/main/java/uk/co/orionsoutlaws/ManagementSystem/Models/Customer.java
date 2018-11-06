@@ -1,6 +1,7 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Customer {
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private List<Bounty> bounties;
 
     public Customer(String name, int account, String emailAddress) {
