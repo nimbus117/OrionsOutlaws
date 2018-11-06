@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header';
-import MapContainer from './maps/GoogleApiWrapper';
+import MapContainer from './maps/GoogleApiComponent';
 
 const Home = props => {
   return(

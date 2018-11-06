@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Request from '../../helpers/request'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
@@ -10,11 +9,14 @@ export class MapContainer extends React.Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
+      selectedBounty: {},
+      bountyUrl: '',
+      bountyName: '',
       bounties: []
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClicked = this.onMapClicked.bind(this);
+    // this.getMapOptions = this.getMapOptions.bind(this);
   }
 
     componentDidMount() {
@@ -26,13 +28,12 @@ export class MapContainer extends React.Component {
     }
 
   onMarkerClick = (props, marker, e) => {
-    console.log("props:", props);
-    console.log("marker:", marker);
-    console.log("event:", e);
     this.setState({
-      selectedPlace: props,
+      selectedBounty: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
+      bountyUrl: "/bounties/details/" + marker.id,
+      bountyName: marker.name
     });
   }
 
@@ -40,10 +41,13 @@ export class MapContainer extends React.Component {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
-        activeMarker: null
+        activeMarker: null,
+        bountyUrl:'',
+        bountyName: ''
       })
     }
   };
+
 
   render() {
 
@@ -54,7 +58,7 @@ export class MapContainer extends React.Component {
       }
 
       const bounties = this.state.bounties.map((bounty, idx) => {
-        return <Marker onClick={this.onMarkerClick}
+        return <Marker key={idx} onClick={this.onMarkerClick}
           name={bounty.targetName}
           id={bounty.id}
           position={{lat: bounty.lastKnownLat, lng: bounty.lastKnownLong}}
@@ -63,21 +67,22 @@ export class MapContainer extends React.Component {
 
     return (
         <div>
-        <Map google={this.props.google} zoom={2.5} style={style}
-          initialCenter={{lat: 38.098015, lng: 9.459019}}
-        onClick={this.onMapClicked}>
+          <Map google={this.props.google} zoom={2.5} style={style}
+            initialCenter={{lat: 38.098015, lng: 9.459019}}
+            mapType={"satellite"}
+            onClick={this.onMapClicked}>
 
-          {bounties}
+            {bounties}
 
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}>
+            <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}>
               <div>
-                <a href={`/bounties/details/${this.state.activeMarker.id}`}>Bounty: {this.state.activeMarker.name}</a>
+                <a href={this.state.bountyUrl}>Bounty: {this.state.bountyName}</a>
               </div>
-          </InfoWindow>
+            </InfoWindow>
 
-        </Map>
+          </Map>
       </div>
     );
   }
