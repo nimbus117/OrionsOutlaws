@@ -22,21 +22,21 @@ const  HunterForm = props => {
     <Container>
     <Form onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} controlId="name">
+        <Form.Group as={Col} lg="6" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control required type="text" placeholder="Enter name" />
         </Form.Group>
-        <Form.Group as={Col} controlId="email">
+        <Form.Group as={Col} lg="6" controlId="email">
           <Form.Label>Email address</Form.Label>
           <Form.Control required type="email" placeholder="Enter email" />
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group as={Col} controlId="wallet">
+        <Form.Group as={Col} lg="6" controlId="wallet">
           <Form.Label>Wallet</Form.Label>
           <Form.Control required type="number" placeholder="Enter amount" />
         </Form.Group>
-        <Form.Group as={Col} controlId="status">
+        <Form.Group as={Col} lg="6" controlId="status">
           <Form.Label>Status</Form.Label>
           <Form.Control required as="select">
             <option value="ALIVE">Alive</option>
