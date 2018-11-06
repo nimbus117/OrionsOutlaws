@@ -28,6 +28,7 @@ export class MapContainer extends React.Component {
   onMarkerClick = (props, marker, e) => {
     console.log("props:", props);
     console.log("marker:", marker);
+    console.log("event:", e);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -55,6 +56,7 @@ export class MapContainer extends React.Component {
       const bounties = this.state.bounties.map((bounty, idx) => {
         return <Marker onClick={this.onMarkerClick}
           name={bounty.targetName}
+          id={bounty.id}
           position={{lat: bounty.lastKnownLat, lng: bounty.lastKnownLong}}
         />
       })
@@ -71,7 +73,7 @@ export class MapContainer extends React.Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <div>
-                <a href="#bounty">Bounty: {this.state.activeMarker.name}</a>
+                <a href={`/bounties/${this.state.activeMarker.id}`}>Bounty: {this.state.activeMarker.name}</a>
               </div>
           </InfoWindow>
 
