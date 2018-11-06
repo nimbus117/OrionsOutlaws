@@ -24,21 +24,21 @@ const  HunterForm = props => {
       <Form.Row>
         <Form.Group as={Col} controlId="name">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" />
+          <Form.Control required type="text" placeholder="Enter name" />
         </Form.Group>
         <Form.Group as={Col} controlId="email">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control required type="email" placeholder="Enter email" />
         </Form.Group>
       </Form.Row>
       <Form.Row>
         <Form.Group as={Col} controlId="wallet">
           <Form.Label>Wallet</Form.Label>
-          <Form.Control type="number" placeholder="Enter amount" />
+          <Form.Control required type="number" placeholder="Enter amount" />
         </Form.Group>
         <Form.Group as={Col} controlId="status">
           <Form.Label>Status</Form.Label>
-          <Form.Control as="select">
+          <Form.Control required as="select">
             <option value="ALIVE">Alive</option>
             <option value="DEAD">Dead</option>
             <option value="RETIRED">Retired</option>
