@@ -13,7 +13,7 @@ const NavBar = props => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" defaultActiveKey={window.location.pathname}>
-          <Nav.Link href="#customer">Customers</Nav.Link>
+          <Nav.Link href="/customers">Customers</Nav.Link>
           <Nav.Link href="/hunters">Hunters</Nav.Link>
           <Nav.Link href="/bounties">Bounties</Nav.Link>
           <Nav.Link href="#assignments">Assignments</Nav.Link>
