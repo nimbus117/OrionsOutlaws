@@ -20,7 +20,7 @@ const NavBar = props => {
           <NavDropdown title="New" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Customer</NavDropdown.Item>
             <NavDropdown.Item href="/hunters/new">Hunter</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Bounty</NavDropdown.Item>
+            <NavDropdown.Item href="/bounties/new">Bounty</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.4">Assignment</NavDropdown.Item>
           </NavDropdown>
         </Nav>
