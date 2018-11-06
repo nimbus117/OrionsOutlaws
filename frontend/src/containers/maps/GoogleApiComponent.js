@@ -32,7 +32,7 @@ export class MapContainer extends React.Component {
       selectedBounty: props,
       activeMarker: marker,
       showingInfoWindow: true,
-      bountyUrl: "/bounties/" + marker.id,
+      bountyUrl: "/bounties/details/" + marker.id,
       bountyName: marker.name
     });
   }
