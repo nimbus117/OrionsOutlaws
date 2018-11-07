@@ -1,6 +1,7 @@
 import React from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+
 export class BountyMapContainer extends React.Component {
 
   constructor(props) {
@@ -71,5 +72,5 @@ export class BountyMapContainer extends React.Component {
 
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAoAwJKfYYsZKkverzYANY8UjrABJdH8lA'
+  apiKey: process.env.REACT_APP_API_KEY
 })(BountyMapContainer)
