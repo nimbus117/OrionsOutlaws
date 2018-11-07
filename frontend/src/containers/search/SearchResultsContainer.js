@@ -1,11 +1,11 @@
-import React from 'react'
-import Request from '../../helpers/request'
-import Header from '../../components/header'
-import Container from 'react-bootstrap/lib/Container'
-import Row from 'react-bootstrap/lib/Row'
-import HunterCard from '../../components/hunters/hunterCard'
-import BountyCard from '../../components/bounties/bountyCard'
-import CustomerCard from '../../components/customers/CustomerCard'
+import React from 'react';
+import Request from '../../helpers/request';
+import Header from '../../components/header';
+import Container from 'react-bootstrap/lib/Container';
+import Row from 'react-bootstrap/lib/Row';
+import HunterCard from '../../components/hunters/hunterCard';
+import BountyCard from '../../components/bounties/bountyCard';
+import CustomerCard from '../../components/customers/CustomerCard';
 
 class SearchResultsContainer extends React.Component {
   constructor(props) {
@@ -14,7 +14,40 @@ class SearchResultsContainer extends React.Component {
       bounties: [],
       customers: [],
       hunters: []
-    }
+    };
+    this.handleBountyDelete = this.handleBountyDelete.bind(this);
+    this.handleHunterDelete = this.handleHunterDelete.bind(this);
+    this.handleCustomerDelete = this.handleCustomerDelete.bind(this);
+  }
+
+  handleBountyDelete(id) {
+    const request = new Request();
+    const url = '/api/bounties/' + id;
+    console.log(url);
+    request.delete(url)
+      .then(() => {
+        window.location = '/searchResults/' + this.props.data;
+      })
+  }
+
+  handleHunterDelete(id) {
+    const request = new Request();
+    const url = '/api/hunters/' + id;
+    console.log(url);
+    request.delete(url)
+      .then(() => {
+        window.location = '/searchResults/' + this.props.data;
+      })
+  }
+
+  handleCustomerDelete(id) {
+    const request = new Request();
+    const url = '/api/customers/' + id;
+    console.log(url);
+    request.delete(url)
+      .then(() => {
+        window.location = '/searchResults/' + this.props.data;
+      })
   }
 
   componentDidMount() {
@@ -32,9 +65,7 @@ class SearchResultsContainer extends React.Component {
             const customersUrl = '/customers/search/' + this.props.data;
             customersRequest.get(customersUrl)
               .then( customers => {
-                this.setState({customers: customers}, (state) => {
-                  console.log(this.state);
-                })
+                this.setState({customers: customers})
               })
               .catch( this.setState({customers: []}))
           })
@@ -46,13 +77,13 @@ class SearchResultsContainer extends React.Component {
   render() {
     if ( this.state.bounties.length > 0 || this.state.hunters.length > 0 || this.state.customers.length > 0) {
       const hunters = this.state.hunters.map((hunter, idx) => {
-        return <HunterCard data={hunter} key={idx} handleDelete={this.handleDelete}/>
+        return <HunterCard data={hunter} key={idx} handleDelete={this.handleHunterDelete}/>
       })
       const bounties = this.state.bounties.map((bounty, idx) => {
-        return <BountyCard data={bounty} key={idx} handleDelete={this.handleDelete}/>
+        return <BountyCard data={bounty} key={idx} handleDelete={this.handleBountyDelete}/>
       })
       const customers = this.state.customers.map((customer, idx) => {
-        return <CustomerCard data={customer} key={idx} handleDelete={this.handleDelete}/>
+        return <CustomerCard data={customer} key={idx} handleDelete={this.handleCustomerDelete}/>
       })
       return(
         <div>
