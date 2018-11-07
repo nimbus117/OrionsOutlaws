@@ -11,7 +11,8 @@ const NavBar = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
     const searchString = event.target.searchSubmit.value;
-    props.handleSearch(searchString);
+    console.log("from navbar:",props);
+    props.handleSearchSubmit(searchString);
   }
 
   return(
