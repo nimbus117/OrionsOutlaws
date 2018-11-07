@@ -5,8 +5,8 @@ import BountyCard from '../../components/bounties/bountyCard'
 import Container from 'react-bootstrap/lib/Container'
 import Row from 'react-bootstrap/lib/Row'
 
-
 class BountiesListContainer extends React.Component{
+
   constructor(props) {
     super(props);
     this.state = {

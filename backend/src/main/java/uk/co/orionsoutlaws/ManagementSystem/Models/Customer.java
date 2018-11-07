@@ -1,6 +1,7 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Customer {
     @Column(name = "email_address")
     private String emailAddress;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("customers")
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Bounty> bounties;
 

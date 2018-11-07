@@ -4,12 +4,13 @@ import Card from 'react-bootstrap/lib/Card'
 import Col from 'react-bootstrap/lib/Col'
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 
-const BountyCard = props => {
+const BountyCard = (props) => {
+
 
   const onDelete = () => {
     props.handleDelete(props.data.id);
   }
-
+  console.log(props.data);
   const path = props.data.imagePath
   const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
   return(
@@ -21,10 +22,11 @@ const BountyCard = props => {
           <ul>
             <li>Reward: £{props.data.reward}</li>
             <li>Completed: {props.data.completed.toString()}</li>
+            <li>Customers: {props.data.customer.name}</li>
           </ul>
           <ButtonGroup aria-label="Bounty options">
             <Button variant="outline-dark" href = {`/bounties/details/${props.data.id}`}>View</Button>
-            <Button variant="outline-dark">Edit</Button>
+            <Button variant="outline-dark" href = {`/bounties/edit/${props.data.id}`} >Edit</Button>
             <Button variant="outline-danger" onClick={onDelete} >Delete</Button>
           </ButtonGroup>
         </Card.Body>
