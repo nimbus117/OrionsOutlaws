@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Request from './helpers/request'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavBar from './components/navbar'
 import Home from './containers/home'
@@ -14,11 +15,43 @@ import CustomersSingleContainer from './containers/customers/customersSingleCont
 import ScrollToTop from 'react-scroll-up'
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      bounties: [],
+      hunters: [],
+      customers: []
+    };
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(searchString) {
+    const bountiesRequest = new Request();
+    const bountiesUrl = '/bounties/search/' + searchString;
+    console.log(bountiesUrl);
+    bountiesRequest.get(bountiesUrl)
+      .then( bounties => this.setState({bounties: bounties}))
+      .catch( this.setState({bounties: []}))
+    const huntersRequest = new Request();
+    const huntersUrl = '/hunters/search/' + searchString;
+    console.log(huntersUrl);
+    huntersRequest.get(huntersUrl)
+      .then( hunters => this.setState({hunters: hunters}))
+      .catch( this.setState({hunters: []}))
+    const customersRequest = new Request();
+    const customersUrl = '/customers/search/' + searchString;
+    console.log(customersUrl);
+    customersRequest.get(customersUrl)
+      .then( customers => this.setState({customers: customers}))
+      .catch( this.setState({customers: []}))
+  }
+
   render() {
     return (
       <Router>
         <React.Fragment>
-          <NavBar />
+          <NavBar handleSearch={this.handleSearch}/>
           <Route exact path="/" component={Home} />
           <Route exact path="/hunters" component={HuntersListContainer} />
           <Route exact path="/hunters/new" component={HuntersFormContainer}/>

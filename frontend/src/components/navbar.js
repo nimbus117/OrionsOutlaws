@@ -6,7 +6,14 @@ import Form from 'react-bootstrap/lib/Form'
 import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
 
-const NavBar = props => {
+const NavBar = (props) => {
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const searchString = event.target.searchSubmit.value;
+    props.handleSearch(searchString);
+  }
+
   return(
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="/"><img src="/images/white-logo.png" alt="company logo" height="35em" width="auto"></img></Navbar.Brand>
@@ -24,9 +31,11 @@ const NavBar = props => {
             <NavDropdown.Item href="#action/3.4">Assignment</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-light">Search</Button>
+        <Form onSubmit={handleSubmit} inline>
+          <Form.Group controlId="searchSubmit" >
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          </Form.Group>
+          <Button type="submit" variant="outline-light">Search</Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>
