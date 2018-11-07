@@ -60,4 +60,12 @@ public class ManagementSystemApplicationTests {
 		Hunter hunter = new Hunter("Dog", "dog@wehuntyou.com", 100, "",HunterStatus.ALIVE);
 		assertEquals(HunterStatus.ALIVE, hunter.getHunterStatus());
 	}
+
+	@Test
+	public void bountyHasTargetName(){
+		Customer customer = new Customer("Jaba", 1000, "jaba@hutt.tat");
+		Bounty bounty = new Bounty("Han", 100, -1.976460, 281.694603, "", customer);
+		assertEquals("Han", bounty.getTargetName());
+
+	}
 }

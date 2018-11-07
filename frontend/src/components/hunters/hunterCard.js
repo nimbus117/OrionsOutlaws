@@ -4,7 +4,8 @@ import Card from 'react-bootstrap/lib/Card'
 import Col from 'react-bootstrap/lib/Col'
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 
-const HunterCard = props => {
+const HunterCard = (props) => {
+
 
   const onDelete = () => {
     props.handleDelete(props.data.id);

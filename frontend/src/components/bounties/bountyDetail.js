@@ -10,9 +10,11 @@ import BountyMapContainer from '../../containers/maps/GoogleApiBounty'
 const BountyDetail = (props) => {
   const path = props.data.imagePath
   const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
+  console.log(props.data);
   return(
     <div>
       <Header title={`Bounty: ${props.data.targetName}`} />
+
       <Container>
         <Row>
           <Col md={4}>
@@ -23,8 +25,10 @@ const BountyDetail = (props) => {
           </Col>
           <Col md={4}>
             <ListGroup variant="flush">
+
               <ListGroup.Item>Reward Value: £{props.data.reward}</ListGroup.Item>
               <ListGroup.Item>Completed: {props.data.completed.toString()}</ListGroup.Item>
+              <ListGroup.Item>Customer: {props.data._embedded.customer.name}</ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>

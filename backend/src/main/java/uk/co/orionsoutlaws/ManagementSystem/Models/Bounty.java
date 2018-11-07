@@ -1,6 +1,7 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -33,6 +34,7 @@ public class Bounty {
     @Column(name = "image_path")
     private String imagePath;
 
+    @JsonIgnoreProperties("bounties")
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;

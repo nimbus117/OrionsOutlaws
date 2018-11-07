@@ -9,9 +9,13 @@ import HuntersSingleContainer from './containers/hunters/huntersSingleContainer'
 import HuntersFormContainer from './containers/hunters/hunterFormContainer'
 import HuntersEditFormContainer from './containers/hunters/hunterEditFormContainer'
 import BountiesListContainer from './containers/bounties/bountiesListContainer'
+import BountiesFormContainer from './containers/bounties/bountiesFormContainer'
+import BountiesEditFormContainer from './containers/bounties/bountiesEditFormContainer'
 import BountiesSingleContainer from './containers/bounties/bountiesSingleContainer'
 import CustomersListContainer from './containers/customers/customersListContainer'
 import CustomersSingleContainer from './containers/customers/customersSingleContainer'
+import CustomersFormContainer from './containers/customers/customersFormContainer'
+import CustomersEditFormContainer from './containers/customers/customerEditFormContainer'
 import ScrollToTop from 'react-scroll-up'
 
 class App extends Component {
@@ -58,9 +62,14 @@ class App extends Component {
           <Route exact path="/hunters/details/:id" component={HuntersSingleContainer} />
           <Route exact path="/hunters/edit/:id" component={HuntersEditFormContainer} />
           <Route exact path="/customers" component={CustomersListContainer} />
+          <Route exact path="/customers/new" component={CustomersFormContainer} />
           <Route exact path="/customers/details/:id" component={CustomersSingleContainer} />
+          <Route exact path="/customers/edit/:id" component={CustomersEditFormContainer} />
           <Route exact path="/bounties" component={BountiesListContainer} />
+          <Route exact path="/bounties/new" component={BountiesFormContainer}/>
           <Route exact path="/bounties/details/:id" component={BountiesSingleContainer} />
+          <Route exact path="/bounties/edit/:id" component={BountiesEditFormContainer} />
+
           <ScrollToTop showUnder={160}>
             <span>TOP</span>
           </ScrollToTop>

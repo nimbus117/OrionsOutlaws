@@ -4,8 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Customer;
+import uk.co.orionsoutlaws.ManagementSystem.Projections.EmbedBounty;
 
-@RepositoryRestResource
+@RepositoryRestResource(excerptProjection = EmbedBounty.class)
 public interface CustomerRepository extends JpaRepository <Customer, Long>, CustomerRepositoryCustom {
 
 }
