@@ -26,7 +26,8 @@ handleSubmit(event){
 
 render(){
 
-
+console.log(this.props.bounty)
+  console.log(this.props.bounty._embedded.customer._links.self.href.replace('{?projection}', ''))
     const options = this.props.customers._embedded.customers.map((customer, idx) => <option value = {customer._links.self.href}>{customer.name} </option>)
     return(
         <Container>
@@ -37,7 +38,7 @@ render(){
                     <Form.Control required type="text" value={this.state.targetName} onChange={e => this.setState({targetName: e.target.value})}/>
                   </Form.Group>
                   <Form.Group as={Col} lg="6" controlId="reward">
-                    <Form.Label>Reward :</Form.Label>
+                    <Form.Label>Reward </Form.Label>
                     <Form.Control required type="number" value={this.state.reward} onChange={e => this.setState({reward: e.target.value})}/>
                   </Form.Group>
               </Form.Row>
@@ -45,15 +46,12 @@ render(){
                 <Form.Label>Image</Form.Label>
                 <Form.Control type="text" value={this.state.imagePath} onChange={e => this.setState({imagePath: e.target.value})}/>
               </Form.Group>
-
               <Form.Group controlId="customer">
                 <Form.Label>Customers</Form.Label>
-                <Form.Control required as="select" value={this.state.customer} onChange={e => this.setState({customer: e.target.value})}>
+                <Form.Control required as="select" value={this.props.bounty._embedded.customer._links.self.href.replace('{?projection}', '')} onChange={e => this.setState({customer: e.target.value})}>
                   {options}
                   </Form.Control>
               </Form.Group>
-
-
               <Button variant="primary" type="submit">Submit</Button>
           </Form>
         </Container>
