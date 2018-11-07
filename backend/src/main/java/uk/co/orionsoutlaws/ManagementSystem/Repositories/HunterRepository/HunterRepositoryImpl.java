@@ -25,7 +25,7 @@ public class HunterRepositoryImpl implements HunterRepositoryCustom{
         try {
 
             Criteria cr = session.createCriteria(Hunter.class);
-            cr.add(Restrictions.like("name", matchString));
+            cr.add(Restrictions.like("name", matchString).ignoreCase());
             results = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();

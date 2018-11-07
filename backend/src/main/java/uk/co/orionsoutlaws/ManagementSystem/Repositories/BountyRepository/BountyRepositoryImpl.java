@@ -24,7 +24,7 @@ public class BountyRepositoryImpl implements BountyRepositoryCustom {
         Session session = entityManager.unwrap(Session.class);
         try {
             Criteria cr = session.createCriteria(Bounty.class);
-            cr.add(Restrictions.like("targetName", matchString));
+            cr.add(Restrictions.like("targetName", matchString).ignoreCase());
             results = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
