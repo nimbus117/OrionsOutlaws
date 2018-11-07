@@ -44,7 +44,7 @@ class SearchResultsContainer extends React.Component {
   }
 
   render() {
-    if ( this.state.bounties !== [] || this.state.hunters !== [] || this.state.customers !== []) {
+    if ( this.state.bounties.length > 0 || this.state.hunters.length > 0 || this.state.customers.length > 0) {
       const hunters = this.state.hunters.map((hunter, idx) => {
         return <HunterCard data={hunter} key={idx} handleDelete={this.handleDelete}/>
       })
@@ -70,14 +70,20 @@ class SearchResultsContainer extends React.Component {
           </Container>
         </div>
       )
-    } else {
-      return (
-        <div>
-          <h2>There were no results found.</h2>
-          <h3>Suggestion: The search is case sensitive, make sure you capitalize your search term.</h3>
-        </div>
-      )
     }
+    return (
+      <div>
+        <Header title="Search Results" />
+        <Container>
+          <Row>
+            <h2>There were no results found.</h2>
+          </Row>
+          <Row>
+            <h3>Suggestion: The search is case sensitive, make sure you capitalize your search term.</h3>
+          </Row>
+        </Container>
+      </div>
+    )
   }
 }
 
