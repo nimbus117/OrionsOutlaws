@@ -6,11 +6,14 @@ import ButtonGroup from 'react-bootstrap/lib/ButtonGroup'
 
 const BountyCard = (props) => {
 
-
   const onDelete = () => {
     props.handleDelete(props.data.id);
   }
-  console.log(props.data);
+
+  const onPatch = () => {
+    props.handleBountyPatch({completed: true}, props.data.id);
+  }
+
   const path = props.data.imagePath
   const image = path ? path : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
   return(
@@ -28,6 +31,7 @@ const BountyCard = (props) => {
             <Button variant="outline-dark" href = {`/bounties/details/${props.data.id}`}>View</Button>
             <Button variant="outline-dark" href = {`/bounties/edit/${props.data.id}`} >Edit</Button>
             <Button variant="outline-danger" onClick={onDelete} >Delete</Button>
+            <Button disabled={props.data.completed} variant="outline-success" onClick={onPatch} >Complete</Button>
           </ButtonGroup>
         </Card.Body>
       </Card>

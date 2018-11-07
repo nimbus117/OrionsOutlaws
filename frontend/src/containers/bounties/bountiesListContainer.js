@@ -13,6 +13,7 @@ class BountiesListContainer extends React.Component{
       bounties: []
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleBountyPatch = this.handleBountyPatch.bind(this);
   }
 
   componentDidMount() {
@@ -31,9 +32,18 @@ class BountiesListContainer extends React.Component{
       })
   }
 
+  handleBountyPatch(payload, id){
+    const request = new Request();
+    const url = '/api/bounties/' + id
+    request.patch(url, payload)
+    .then(() => {
+      window.location = '/bounties';
+    })
+  }
+
   render() {
     const bounties = this.state.bounties.map((bounty, idx) => {
-      return <BountyCard data={bounty} key={idx} handleDelete={this.handleDelete}/>
+      return <BountyCard data={bounty} key={idx} handleDelete={this.handleDelete} handleBountyPatch={this.handleBountyPatch}/>
     })
     return(
       <div>

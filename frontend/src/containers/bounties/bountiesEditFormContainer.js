@@ -40,7 +40,6 @@ class BountyEditFormContainer extends React.Component{
     .then(() => {
       window.location = '/bounties/details/' + this.props.match.params.id;
     })
-
   }
 
   render(){
