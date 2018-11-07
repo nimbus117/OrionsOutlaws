@@ -59,6 +59,8 @@ public class DataLoader  implements ApplicationRunner {
         hunterRepository.save(hunter3);
         Hunter hunter4 = new Hunter("IG-88", "ngylaura@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg", HunterStatus.ALIVE);
         hunterRepository.save(hunter4);
+        Hunter hunter5 = new Hunter("Unnamed Zabrak", "guesswho@gmail.com", 1000, "https://vignette.wikia.nocookie.net/starwarsdarkdreams/images/2/2b/Star-wars-know-your-bounty-hunters.jpg", HunterStatus.ALIVE);
+        hunterRepository.save(hunter5);
 
         Assignment assignment = new Assignment(bounty, hunter,"Jun 09 2018");
         assignmentRepository.save(assignment);
