@@ -52,16 +52,13 @@ class App extends Component {
           <Route exact path="/bounties/new" component={BountiesFormContainer}/>
           <Route exact path="/bounties/details/:id" component={BountiesSingleContainer} />
           <Route exact path="/bounties/edit/:id" component={BountiesEditFormContainer} />
-<<<<<<< HEAD
           <Route exact path="/searchResults/:searchString" render= { (props) => {
             const data = props.match.params.searchString;
             return <SearchResultsContainer data={data} />
             }}
           />
-=======
           <Route exact path="/assignments" component={AssignmentsListContainer} />
           <Route exact path="/assignments/new" component={AssignmentsFormContainer}/>
->>>>>>> develop
           <ScrollToTop showUnder={160}>
             <span>TOP</span>
           </ScrollToTop>
