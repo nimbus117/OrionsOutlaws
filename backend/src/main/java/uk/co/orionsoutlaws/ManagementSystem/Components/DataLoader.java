@@ -57,7 +57,7 @@ public class DataLoader  implements ApplicationRunner {
         hunterRepository.save(hunter2);
         Hunter hunter3 = new Hunter("Krombopulos Michael", "lovekillin@hereigo.com", 100, "https://pbs.twimg.com/profile_images/894809145315950592/ZS11JXni_400x400.jpg", HunterStatus.ALIVE);
         hunterRepository.save(hunter3);
-        Hunter hunter4 = new Hunter("IG-88", "ig88ROXXX@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg", HunterStatus.ALIVE);
+        Hunter hunter4 = new Hunter("IG-88", "ngylaura@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg", HunterStatus.ALIVE);
         hunterRepository.save(hunter4);
 
         Assignment assignment = new Assignment(bounty, hunter);
@@ -72,8 +72,9 @@ public class DataLoader  implements ApplicationRunner {
         assignmentRepository.save(assignment3);
         //assignment3.sendEmailNotification();
 
-        Assignment assignment4 = new Assignment(bounty, hunter2);
+        Assignment assignment4 = new Assignment(bounty, hunter4);
         assignmentRepository.save(assignment4);
+        assignment4.sendEmailNotification();
 
     }
 }
