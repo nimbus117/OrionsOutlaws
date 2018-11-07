@@ -3,12 +3,13 @@ package uk.co.orionsoutlaws.ManagementSystem.Models;
 import uk.co.orionsoutlaws.ManagementSystem.Components.Gmail;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import uk.co.orionsoutlaws.ManagementSystem.Listeners.AssignmentListener;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "assignments")
+@EntityListeners(AssignmentListener.class)
 public class Assignment {
 
     @Id

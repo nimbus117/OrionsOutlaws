@@ -3,6 +3,7 @@ package uk.co.orionsoutlaws.ManagementSystem.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
+import uk.co.orionsoutlaws.ManagementSystem.Listeners.BountyListener;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "bounties")
+@EntityListeners(BountyListener.class)
 public class Bounty {
 
     @Id
