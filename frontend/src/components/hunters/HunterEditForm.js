@@ -14,7 +14,6 @@ class HunterEditForm extends React.Component {
         "imagePath": props.hunter.imagePath,
         "hunterStatus": props.hunter.hunterStatus
     }
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
