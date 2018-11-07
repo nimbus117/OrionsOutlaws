@@ -8,6 +8,8 @@ import HuntersSingleContainer from './containers/hunters/huntersSingleContainer'
 import HuntersFormContainer from './containers/hunters/hunterFormContainer'
 import HuntersEditFormContainer from './containers/hunters/hunterEditFormContainer'
 import BountiesListContainer from './containers/bounties/bountiesListContainer'
+import BountiesFormContainer from './containers/bounties/bountiesFormContainer'
+import BountiesEditFormContainer from './containers/bounties/bountiesEditFormContainer'
 import BountiesSingleContainer from './containers/bounties/bountiesSingleContainer'
 import CustomersListContainer from './containers/customers/customersListContainer'
 import CustomersSingleContainer from './containers/customers/customersSingleContainer'
@@ -31,7 +33,10 @@ class App extends Component {
           <Route exact path="/customers/details/:id" component={CustomersSingleContainer} />
           <Route exact path="/customers/edit/:id" component={CustomersEditFormContainer} />
           <Route exact path="/bounties" component={BountiesListContainer} />
+          <Route exact path="/bounties/new" component={BountiesFormContainer}/>
           <Route exact path="/bounties/details/:id" component={BountiesSingleContainer} />
+          <Route exact path="/bounties/edit/:id" component={BountiesEditFormContainer} />
+
           <ScrollToTop showUnder={160}>
             <span>TOP</span>
           </ScrollToTop>
