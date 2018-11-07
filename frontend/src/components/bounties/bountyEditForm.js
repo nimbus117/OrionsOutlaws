@@ -12,7 +12,7 @@ class BountyEditForm extends React.Component{
       "targetName": props.bounty.targetName,
       "reward": props.bounty.reward,
       "imagePath": props.bounty.imagePath,
-      "customer": props.bounty.customer
+      "customer": props.bounty._embedded.customer._links.self.href.replace("{?projection}","")
     }
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,8 +26,9 @@ handleSubmit(event){
 
 render(){
 
-console.log(this.props.bounty)
-  console.log(this.props.bounty._embedded.customer._links.self.href.replace('{?projection}', ''))
+console.log(this.state)
+  console.log(this.props)
+  console.log(this.props.bounty._embedded.customer._links.self.href)
     const options = this.props.customers._embedded.customers.map((customer, idx) => <option value = {customer._links.self.href}>{customer.name} </option>)
     return(
         <Container>
@@ -48,7 +49,7 @@ console.log(this.props.bounty)
               </Form.Group>
               <Form.Group controlId="customer">
                 <Form.Label>Customers</Form.Label>
-                <Form.Control required as="select" value={this.props.bounty._embedded.customer._links.self.href.replace('{?projection}', '')} onChange={e => this.setState({customer: e.target.value})}>
+                <Form.Control required as="select" value={this.state.customer} onChange={e => this.setState({customer: e.target.value})}>
                   {options}
                   </Form.Control>
               </Form.Group>
