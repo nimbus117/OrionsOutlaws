@@ -25,12 +25,12 @@ const AssignmentCard = (props) => {
           <Card.Title>{props.data.name}</Card.Title>
 
           <Row>
-            <Col md={4} className="align-items-stretch"> <a href = {"/bounties/details/"+ props.data.bounty.id}><Image fluid src={bountyImage}/></a></Col>
+            <Col md={4} className="align-items-stretch"> <a href = {"/bounties/details/"+ props.data.bounty.id}><Image className="assignmentImage" fluid src={bountyImage}/></a></Col>
           <Col md={4} className="align-items-stretch">
               <p className="text-center">Date Assigned</p>
               <p className="text-center">{props.data.dateAssigned}</p>
           </Col>
-            <Col md={4} className="align-items-stretch"><a href = {"/hunters/details/"+ props.data.hunter.id}><Image fluid src={hunterImage}/></a></Col>
+            <Col md={4} className="align-items-stretch"><a href = {"/hunters/details/"+ props.data.hunter.id}><Image className="assignmentImage" fluid src={hunterImage}/></a></Col>
           </Row>
           <ButtonGroup  aria-label="Assignment options">
             <Button className="mt-4"  variant="outline-danger" onClick={onDelete}>Delete</Button>

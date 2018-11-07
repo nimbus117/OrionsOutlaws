@@ -52,3 +52,8 @@ p{
 .jumbotron {
   padding: 1em;
 }
+
+.assignmentImage:hover{
+  opacity: 0.5;
+     filter: alpha(opacity=50);
+}
