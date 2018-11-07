@@ -20,8 +20,8 @@ const CustomerCrad = props => {
             <li>Wallet: £{props.data.account}</li>
           </ul>
           <ButtonGroup aria-label="Hunter options">
-            <Button variant="outline-dark" href = {`/customers/details/${props.data.id}`}>View</Button>
-            <Button variant="outline-dark">Edit</Button>
+            <Button variant="outline-dark" href={`/customers/details/${props.data.id}`}>View</Button>
+            <Button variant="outline-dark" href={`/customers/edit/${props.data.id}`}>Edit</Button>
             <Button variant="outline-danger" onClick={onDelete}>Delete</Button>
           </ButtonGroup>
         </Card.Body>
