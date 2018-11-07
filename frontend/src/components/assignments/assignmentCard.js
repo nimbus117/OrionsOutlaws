@@ -12,11 +12,12 @@ const AssignmentCard = (props) => {
     props.handleDelete(props.data.id);
   }
 
-  console.log(props.data)
   const bountyPath = props.data.bounty.imagePath
   const bountyImage = bountyPath ? bountyPath : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
+
   const hunterPath = props.data.hunter.imagePath
   const hunterImage = hunterPath ? hunterPath : "https://dummyimage.com/400x400/000/fff.png&text=No Image"
+
   return(
     <Col md={6}>
       <Card className="mb-4">
@@ -27,20 +28,12 @@ const AssignmentCard = (props) => {
             <Col md={4} className="align-items-stretch"><Image fluid src={bountyImage}/></Col>
           <Col md={4} className="align-items-stretch">
               <p className="text-center">Date Assigned</p>
-              <p className="text-center">{props.data.dateAssigned.substr(0,10)}</p>
+              <p className="text-center">{props.data.dateAssigned}</p>
           </Col>
             <Col md={4} className="align-items-stretch"><Image fluid src={hunterImage}/></Col>
           </Row>
-
-
-
-
-
-
-          <ButtonGroup aria-label="Assignment options">
-            <Button variant="outline-dark" href = {`/assignments/details/${props.data.id}`}>View</Button>
-            <Button variant="outline-dark" href = {`/assignments/edit/${props.data.id}`}>Edit</Button>
-            <Button variant="outline-danger" onClick={onDelete}>Delete</Button>
+          <ButtonGroup  aria-label="Assignment options">
+            <Button className="mt-4"  variant="outline-danger" onClick={onDelete}>Delete</Button>
           </ButtonGroup>
         </Card.Body>
       </Card>
