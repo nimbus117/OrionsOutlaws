@@ -1,6 +1,8 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -17,6 +19,7 @@ public class Assignment {
     @JoinColumn(name = "bounty_id", nullable = false)
     private Bounty bounty;
 
+    @JsonIgnoreProperties("hunters")
     @ManyToOne
     @JoinColumn(name = "hunter_id", nullable = false)
     private Hunter hunter;
