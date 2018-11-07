@@ -14,6 +14,6 @@ public interface EmbedHunter {
     long getId();
     Hunter getHunter();
     Bounty getBounty();
-    LocalDateTime getDateAssigned();
+   String getDateAssigned();
 
 }

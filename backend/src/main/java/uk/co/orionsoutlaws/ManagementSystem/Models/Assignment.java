@@ -25,15 +25,15 @@ public class Assignment {
     private Hunter hunter;
 
     @Column(name = "date_assigned")
-    private LocalDateTime dateAssigned;
+    private String dateAssigned;
 
     public Assignment() {
     }
 
-    public Assignment(Bounty bounty, Hunter hunter) {
+    public Assignment(Bounty bounty, Hunter hunter, String dateAssigned) {
         this.bounty = bounty;
         this.hunter = hunter;
-        dateAssigned = LocalDateTime.now();
+        this.dateAssigned = dateAssigned;
     }
 
     public Long getId() {
@@ -60,11 +60,11 @@ public class Assignment {
         this.hunter = hunter;
     }
 
-    public LocalDateTime getDateAssigned() {
+    public String getDateAssigned() {
         return dateAssigned;
     }
 
-    public void setDateAssigned(LocalDateTime dateAssigned) {
+    public void setDateAssigned(String dateAssigned) {
         this.dateAssigned = dateAssigned;
     }
 }
