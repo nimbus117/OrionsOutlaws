@@ -23,12 +23,12 @@ const NavBar = (props) => {
           <Nav.Link href="/customers">Customers</Nav.Link>
           <Nav.Link href="/hunters">Hunters</Nav.Link>
           <Nav.Link href="/bounties">Bounties</Nav.Link>
-          <Nav.Link href="#assignments">Assignments</Nav.Link>
+          <Nav.Link href="/assignments">Assignments</Nav.Link>
           <NavDropdown title="New" id="basic-nav-dropdown">
             <NavDropdown.Item href="/customers/new">Customer</NavDropdown.Item>
             <NavDropdown.Item href="/hunters/new">Hunter</NavDropdown.Item>
             <NavDropdown.Item href="/bounties/new">Bounty</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.4">Assignment</NavDropdown.Item>
+            <NavDropdown.Item href="/assignments/new">Assignment</NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Form onSubmit={handleSubmit} inline>

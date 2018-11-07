@@ -51,7 +51,7 @@ public class ManagementSystemApplicationTests {
 	    Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "", HunterStatus.ALIVE);
 	    hunterRepository.save(hunter);
 
-		Assignment assignment = new Assignment(bounty, hunter);
+		Assignment assignment = new Assignment(bounty, hunter,"Nov 07 2018");
 		assignmentRepository.save(assignment);
 	}
 

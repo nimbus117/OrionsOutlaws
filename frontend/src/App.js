@@ -16,6 +16,8 @@ import CustomersListContainer from './containers/customers/customersListContaine
 import CustomersSingleContainer from './containers/customers/customersSingleContainer'
 import CustomersFormContainer from './containers/customers/customersFormContainer'
 import CustomersEditFormContainer from './containers/customers/customerEditFormContainer'
+import AssignmentsListContainer from './containers/assignments/assignmentsListContainer'
+import AssignmentsFormContainer from './containers/assignments/assignmentsFormContainer'
 import ScrollToTop from 'react-scroll-up'
 
 class App extends Component {
@@ -69,7 +71,8 @@ class App extends Component {
           <Route exact path="/bounties/new" component={BountiesFormContainer}/>
           <Route exact path="/bounties/details/:id" component={BountiesSingleContainer} />
           <Route exact path="/bounties/edit/:id" component={BountiesEditFormContainer} />
-
+          <Route exact path="/assignments" component={AssignmentsListContainer} />
+          <Route exact path="/assignments/new" component={AssignmentsFormContainer}/>
           <ScrollToTop showUnder={160}>
             <span>TOP</span>
           </ScrollToTop>

@@ -60,21 +60,16 @@ public class DataLoader  implements ApplicationRunner {
         Hunter hunter4 = new Hunter("IG-88", "ngylaura@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg", HunterStatus.ALIVE);
         hunterRepository.save(hunter4);
 
-        Assignment assignment = new Assignment(bounty, hunter);
+        Assignment assignment = new Assignment(bounty, hunter,"Jun 09 2018");
         assignmentRepository.save(assignment);
-        //assignment.sendEmailNotification();
 
-        Assignment assignment2 = new Assignment(bounty2, hunter2);
+        Assignment assignment2 = new Assignment(bounty2, hunter2, "Jan 04 2018");
         assignmentRepository.save(assignment2);
-        //assignment2.sendEmailNotification();
-
-        Assignment assignment3 = new Assignment(bounty3, hunter3);
+        Assignment assignment3 = new Assignment(bounty3, hunter3, "Dec 08 2017");
         assignmentRepository.save(assignment3);
-        //assignment3.sendEmailNotification();
-
-        Assignment assignment4 = new Assignment(bounty, hunter4);
+        Assignment assignment4 = new Assignment(bounty, hunter2, "Nov 07 2018");
         assignmentRepository.save(assignment4);
-        assignment4.sendEmailNotification();
+
 
     }
 }
