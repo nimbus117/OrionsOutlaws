@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import uk.co.orionsoutlaws.ManagementSystem.Enums.HunterStatus;
+import uk.co.orionsoutlaws.ManagementSystem.Components.Gmail;
+
 import uk.co.orionsoutlaws.ManagementSystem.Models.Assignment;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Bounty;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Customer;
@@ -51,8 +53,6 @@ public class ManagementSystemApplicationTests {
 
 		Assignment assignment = new Assignment(bounty, hunter);
 		assignmentRepository.save(assignment);
-
-
 	}
 
 	@Test

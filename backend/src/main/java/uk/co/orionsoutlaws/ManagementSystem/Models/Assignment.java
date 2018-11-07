@@ -1,9 +1,9 @@
 package uk.co.orionsoutlaws.ManagementSystem.Models;
 
+import uk.co.orionsoutlaws.ManagementSystem.Components.Gmail;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "assignments")
@@ -63,5 +63,22 @@ public class Assignment {
 
     public void setDateAssigned(LocalDateTime dateAssigned) {
         this.dateAssigned = dateAssigned;
+    }
+
+    public void sendEmailNotification() {
+        String subject = "New Assignment: " + bounty.getTargetName();
+        String body = "<p>For the attention of " + hunter.getName() + "</p>" +
+                "<ul>" +
+                    "<li>Target Name: " + bounty.getTargetName() + "</li>" +
+                    "<li>Reward: " + bounty.getReward() + "</li>" +
+                    "<li>Last Known Location: " + bounty.getLastKnownLocation() + "</li>" +
+                    "<li>Customer: " + bounty.getCustomer().getName() + "</li>" +
+                    "<li>Customer Email: " + bounty.getCustomer().getEmailAddress() + "</li>" +
+                "</ul>";
+
+        try {
+            Gmail email = new Gmail(hunter.getEmailAdress(), subject, body);
+            email.send();
+        } catch (java.lang.Exception ex) {System.out.println("Gmail error: " + ex.getMessage());}
     }
 }
