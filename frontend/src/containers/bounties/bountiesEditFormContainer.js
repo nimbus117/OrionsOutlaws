@@ -47,7 +47,7 @@ class BountyEditFormContainer extends React.Component{
     if(!this.state.bounty){return null}
     return(
       <div>
-        <Header title={"Edit Bounty" + this.state.bounty.targetName}/>
+        <Header title={"Edit Bounty: " + this.state.bounty.targetName}/>
         <BountyEditForm bounty={this.state.bounty} customers={this.state.customers} handleBountyPatch={this.handleBountyPatch}/>
       </div>
     )

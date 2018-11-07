@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import uk.co.orionsoutlaws.ManagementSystem.Enums.HunterStatus;
+import uk.co.orionsoutlaws.ManagementSystem.Components.Gmail;
+
 import uk.co.orionsoutlaws.ManagementSystem.Models.Assignment;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Bounty;
 import uk.co.orionsoutlaws.ManagementSystem.Models.Customer;
@@ -49,10 +51,8 @@ public class ManagementSystemApplicationTests {
 	    Hunter hunter = new Hunter("Dog", "dog@wehuntu.com", 100, "", HunterStatus.ALIVE);
 	    hunterRepository.save(hunter);
 
-		Assignment assignment = new Assignment(bounty, hunter);
+		Assignment assignment = new Assignment(bounty, hunter,"Nov 07 2018");
 		assignmentRepository.save(assignment);
-
-
 	}
 
 	@Test

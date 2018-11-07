@@ -3,6 +3,7 @@
 
 ### STS ###
 .apt_generated
+.class
 .classpath
 .factorypath
 .project
@@ -23,3 +24,6 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Config ###
+/backend/email_credentials.txt

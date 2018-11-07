@@ -4,41 +4,48 @@ import Button from 'react-bootstrap/lib/Button'
 import Container from 'react-bootstrap/lib/Container'
 import Col from 'react-bootstrap/lib/Col'
 
-const  CustomerForm = props => {
+class CustomerForm extends React.Component {
 
-  function handleSubmit(event){
-    event.preventDefault();
-    const customer = {
-      "name": event.target.name.value,
-      "emailAddress": event.target.email.value,
-      "account": event.target.account.value
+  constructor(props) {
+    super(props);
+    this.state = {
+      "name": props.customer.name,
+      "emailAddress": props.customer.emailAddress,
+      "account": props.customer.account.toString()
     }
-    props.handleCustomerPost(customer);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  return(
-    <Container>
-    <Form onSubmit={handleSubmit}>
-      <Form.Row>
-        <Form.Group as={Col} lg="6" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control required type="text" placeholder="Enter name" />
-        </Form.Group>
-        <Form.Group as={Col} lg="6" controlId="email">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control required type="email" placeholder="Enter email" />
-        </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} lg="6" controlId="account">
-          <Form.Label>Account</Form.Label>
-          <Form.Control required type="number" placeholder="Enter amount" />
-        </Form.Group>
-      </Form.Row>
-      <Button variant="primary" type="submit">Submit</Button>
-    </Form>
-    </Container>
-  )
+  handleSubmit(event){
+    event.preventDefault();
+    const customer = this.state
+    this.props.handleCustomerPatch(customer);
+  }
+  render() {
+    return(
+      <Container>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Row>
+          <Form.Group as={Col} lg="6" controlId="name">
+            <Form.Label>Name</Form.Label>
+      <Form.Control required type="text" value={this.state.name} onChange={e => this.setState({name: e.target.value})}/>
+          </Form.Group>
+          <Form.Group as={Col} lg="6" controlId="email">
+            <Form.Label>Email address</Form.Label>
+      <Form.Control required type="email" value={this.state.emailAddress} onChange={e => this.setState({emailAddress: e.target.value})}/>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} lg="6" controlId="account">
+            <Form.Label>Account</Form.Label>
+      <Form.Control required type="number" value={this.state.account} onChange={e => this.setState({account: e.target.value})}/>
+          </Form.Group>
+        </Form.Row>
+        <Button variant="primary" type="submit">Submit</Button>
+      </Form>
+      </Container>
+    )
+  }
 }
 
 export default CustomerForm;

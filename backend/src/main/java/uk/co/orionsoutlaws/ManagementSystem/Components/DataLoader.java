@@ -57,16 +57,17 @@ public class DataLoader  implements ApplicationRunner {
         hunterRepository.save(hunter2);
         Hunter hunter3 = new Hunter("Krombopulos Michael", "lovekillin@hereigo.com", 100, "https://pbs.twimg.com/profile_images/894809145315950592/ZS11JXni_400x400.jpg", HunterStatus.ALIVE);
         hunterRepository.save(hunter3);
-        Hunter hunter4 = new Hunter("IG-88", "ig88ROXXX@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg", HunterStatus.ALIVE);
+        Hunter hunter4 = new Hunter("IG-88", "ngylaura@gmail.com", 100, "https://cdna.artstation.com/p/assets/images/images/001/791/968/20160114112028/smaller_square/josh-herman-ig88final.jpg", HunterStatus.ALIVE);
         hunterRepository.save(hunter4);
 
-        Assignment assignment = new Assignment(bounty, hunter);
+        Assignment assignment = new Assignment(bounty, hunter,"Jun 09 2018");
         assignmentRepository.save(assignment);
-        Assignment assignment2 = new Assignment(bounty2, hunter2);
+
+        Assignment assignment2 = new Assignment(bounty2, hunter2, "Jan 04 2018");
         assignmentRepository.save(assignment2);
-        Assignment assignment3 = new Assignment(bounty3, hunter3);
+        Assignment assignment3 = new Assignment(bounty3, hunter3, "Dec 08 2017");
         assignmentRepository.save(assignment3);
-        Assignment assignment4 = new Assignment(bounty, hunter2);
+        Assignment assignment4 = new Assignment(bounty, hunter2, "Nov 07 2018");
         assignmentRepository.save(assignment4);
 
 
